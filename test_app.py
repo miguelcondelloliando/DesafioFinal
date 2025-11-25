@@ -27,7 +27,7 @@ class APITestCase(unittest.TestCase):
     def test_protected_token(self):
         headers = {"Authorization": "Bearer token_falso"}
         response = self.client.get('/protected', headers=headers)
-        self.assertFalse(response.status_code, 401)  
+        self.assertEqual(response.status_code, 422)  
 
 if __name__ == '__main__':
     unittest.main()
